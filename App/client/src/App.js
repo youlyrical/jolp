@@ -5,7 +5,7 @@ import { loginUser, clearUser } from "./Reducer/userSlice.js";
 import firebase from "./firebase.js";
 
 import Heading from "./Component/Heading";
-import List from "./Component/Post/List";
+import MainPage from "./Component/MainPage";
 
 import Upload from "./Component/Post/Upload";
 import PostArea from "./Component/Post/PostArea";
@@ -40,7 +40,7 @@ function App() {
       <Routes>
         <Route 
           path="/"
-          element={<List ContentList={ContentList} setContentList={setContentList}/>}
+          element={<MainPage />}
         />
         <Route 
           path="/upload" 

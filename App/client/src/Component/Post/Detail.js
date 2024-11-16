@@ -4,6 +4,8 @@ import {Link} from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom'
 import Avatar from "react-avatar";
 import axios from 'axios';
+import moment from "moment";
+import "moment/locale/ko";
 
 import {
     PostDiv,
@@ -15,6 +17,14 @@ function Detail(props) {
     let params = useParams();
     let navigate = useNavigate();
     const user = useSelector((state) => state.user);
+
+    const SetTime = (a, b) => {
+        if (a !== b) {
+          return moment(b).format("YYYY년 MMMM Do, hh:mm") + "(수정됨)";
+        } else {
+          return moment(a).format("YYYY년 MMMM Do, hh:mm");
+        }
+      };
 
     const DeleteHandler = () => {
         if(window.confirm("정말로 삭제하시겠습니까?")){
@@ -47,6 +57,9 @@ function Detail(props) {
                 style={{ border: "1px solid #c6c6c6" }}
             />
             <p>{props.PostInfo.author.displayName}</p>
+            <p className="time">
+            {SetTime(props.PostInfo.createdAt, props.PostInfo.updatedAt)}
+            </p>
             </div>
             {props.PostInfo.image ? (
                 <img 
