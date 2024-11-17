@@ -77,7 +77,7 @@ function MyPage() {
             style={{ border: "1px solid #c6c6c6", cursor: "pointer" }}
           />
         </label>
-        <button onClick={(e) => SaveProfile(e)}>저장</button>
+        <button onClick={(e) => SaveProfile(e)}>저장하기</button>
       </form>
     </MyPageDiv>
   )
